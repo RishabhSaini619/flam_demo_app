@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
 import flam from "./components/FlamSDK";
-import orderDetails from "./components/OrderDetails"
-import finalizeOrder from "./components/APIService";
+import orderDetails from "./components/OrderDetails";
+import {finalizeOrder} from "./components/APIService";
 import AppHeader from "./components/AppHeader";
 import AppBody from "./components/AppBody";
-
 
 const App = () => {
   const initKey = "MIIJrTBXBgkqhkiG9w0BBQ0wSjApBgkq"; // Replace with your actual initKey
@@ -15,9 +14,11 @@ const App = () => {
   const onLaunch = () => {
     flam.placeOrder({
       ...orderDetails,
-      handleSuccess: (data) => {
+      handleSuccess: async (data) => {
         console.log("sdkRes", data);
-        setUserData(data);
+        
+        const response = await finalizeOrder(data.ref_id, initKey);
+        setUserData(response.data);
       },
       handleFailure: (err) => {
         console.log(err, "error");
@@ -27,7 +28,7 @@ const App = () => {
 
   const onFinalize = () => {
     finalizeOrder(userData.ref_id, initKey);
-    setSubmit(true);
+    // setSubmit(true);
   };
 
   return (
@@ -35,9 +36,7 @@ const App = () => {
       <AppHeader onLaunch={onLaunch} />
       <AppBody
         userData={userData}
-        submit={submit}
         onLaunch={onLaunch}
-        onFinalize={onFinalize}
       />
     </div>
   );

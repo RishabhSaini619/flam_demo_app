@@ -1,7 +1,10 @@
 // API.js
 import axios from "axios";
 
-const finalizeOrder = async (refId, initKey) => {
+export const finalizeOrder = async (refId, initKey) => {
+
+  console.log(refId, initKey)
+
   try {
     const response = await axios.post(
       "https://api.flamapp.com/flamcards/zingcam/order/finalize",
@@ -15,9 +18,12 @@ const finalizeOrder = async (refId, initKey) => {
       }
     );
 
+    console.log(response, 'test 1')
+
     if (response.data) {
-      const rData = response.data;
-      console.log(rData);
+      const responseData = response.data;
+      console.log(responseData, 'test 2');
+      return responseData;
     } else {
       throw new Error("Error posting data to API");
     }
@@ -26,4 +32,4 @@ const finalizeOrder = async (refId, initKey) => {
   }
 };
 
-export default finalizeOrder;
+

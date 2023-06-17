@@ -1,26 +1,77 @@
 .App {
   text-align: center;
-  height: 100vh;
+  align-items: center;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.App-header {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+
+  width: 100vw;
+  height: 10vh;
+}
+
+.App-body {
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
+  align-content: center;
   justify-content: center;
   align-items: center;
 }
 
-.App-header {
-  margin-bottom: 2rem;
-}
-
-.App-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.App-body-submit{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .logo {
   cursor: pointer;
+  align-content: center;
+  width: 50vw;
+  height: 10vh;
 }
 
-h1, h2 {
+.logo_zingcam {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.downloadImageButton{position: absolute;
+  top: 48%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+}
+
+.downloadVideoButton{position: absolute;
+  top: 77.5%;
+  left: 95%;
+  transform: translate(-50%, -50%);}
+
+h1,
+h2 {
   margin-bottom: 0.5rem;
+}
+
+.launch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.client_photo_url {
+  width: 90vw;
+  height: 20vh;
+  margin: 10vi;
+}
+
+.client_video_url {
+  width: 90vw;
+  height: 20vh;
+  margin: 10vi;
 }

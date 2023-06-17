@@ -7,9 +7,6 @@ const AppHeader = ({ onLaunch }) => {
       <img
         src={process.env.PUBLIC_URL + "/flam.svg"}
         alt="image"
-        className="logo"
-        width="400"
-        height="100"
       />
     </div>
   );

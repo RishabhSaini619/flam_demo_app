@@ -1,41 +1,95 @@
 // AppBody.js
 import React from "react";
+import ReactPlayer from "react-player";
 
-const AppBody = ({ userData, submit, onLaunch, onFinalize }) => {
+const AppBody = ({ userData, onLaunch }) => {
+  const downloadImage = () => {
+    fetch(userData.photo_url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "image.jpg";
+        link.click();
+      });
+  };
+
+  const downloadVideo = () => {
+    fetch(userData.video_url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "video.mp4";
+        link.click();
+      });
+  };
+
   return (
     <div className="App-body">
-      {!userData.order_id ? (
-        <img
-          src={process.env.PUBLIC_URL + "launch.png"}
-          alt="image"
-          className="logo"
-          width="300"
-          height="100"
-          onClick={onLaunch}
-        />
+      {userData?.order?._id ? (
+        <div className="App-body-submit">
+          <img
+            className="client_photo_url"
+            src={userData.photo_url}
+            alt="image"
+          />
+          <div className="client_video_url">
+            <ReactPlayer
+              url={userData.video_url}
+              width="100%"
+              height="100%"
+              controls={true}
+            />
+          </div>
+
+          <div className="logo_zingcam">
+            <img
+              src={process.env.PUBLIC_URL + " logo_zingcam.png"}
+              alt="image"
+              width="50"
+              height="50"
+              onClick={() =>
+                window.open("https://onelink.to/zingcam", "_blank")
+              }
+            />
+          </div>
+
+          <div className="download-buttons">
+            
+              <img
+                className="downloadImageButton"
+                src={process.env.PUBLIC_URL + " download1.png"}
+                alt="image"
+                width="30"
+                height="30"
+                onClick={downloadImage}
+              />
+            
+            
+              <img
+                className="downloadVideoButton"
+                src={process.env.PUBLIC_URL + " download1.png"}
+                alt="image"
+                width="30"
+                height="30"
+                onClick={downloadVideo}
+              />
+            
+          </div>
+        </div>
       ) : (
-        <div>
-          <h2>Order Id</h2>
-          <h4>{userData.order_id}</h4>
-          {!submit ? (
-            <img
-              src={process.env.PUBLIC_URL + "/complete.png"}
-              alt="image"
-              className="logo"
-              width="300"
-              height="100"
-              onClick={onFinalize}
-            />
-          ) : (
-            <img
-              src={process.env.PUBLIC_URL + "/placed.png"}
-              alt="image"
-              className="logo"
-              width="300"
-              height="100"
-              onClick={onFinalize}
-            />
-          )}
+        <div className="App-body-submit">
+          <img
+            src={process.env.PUBLIC_URL + "launch.png"}
+            alt="image"
+            className="launch"
+            width="180"
+            height="75"
+            onClick={onLaunch}
+          />
         </div>
       )}
     </div>
