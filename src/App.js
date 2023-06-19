@@ -1,42 +1,52 @@
 import React, { useState } from "react";
 import "./App.css";
 import flam from "./components/FlamSDK";
-import orderDetails from "./components/OrderDetails";
-import {finalizeOrder} from "./components/APIService";
+import orderDetails, { refrenceId } from "./components/OrderDetails";
+import { finalizeOrder, orderStatus } from "./components/APIService";
 import AppHeader from "./components/AppHeader";
 import AppBody from "./components/AppBody";
 
 const App = () => {
-  const initKey = "MIIJrTBXBgkqhkiG9w0BBQ0wSjApBgkq"; // Replace with your actual initKey
-  const [userData, setUserData] = useState({});
-  const [submit, setSubmit] = useState(false);
+  const initKey = "MIIJrTBXBgkqhkiG9w0BBQ0wSjApBgkq";
+  const [orderData, setOrderData] = useState({});
+  const [orderStatusData, setOrderStatusData] = useState({});
 
   const onLaunch = () => {
     flam.placeOrder({
       ...orderDetails,
       handleSuccess: async (data) => {
         console.log("sdkRes", data);
-        
+
         const response = await finalizeOrder(data.ref_id, initKey);
-        setUserData(response.data);
+        setOrderData(response.data);
+
+        setOrderStatusData(response.data);
+        console.log(response, "initStat", orderStatusData);
       },
       handleFailure: (err) => {
         console.log(err, "error");
       },
+      handleClose: () => {
+        console.log("closed");
+      },
     });
   };
 
-  const onFinalize = () => {
-    finalizeOrder(userData.ref_id, initKey);
-    // setSubmit(true);
+  const onRefresh = async () => {
+    console.log(refrenceId, initKey, "onRefresh");
+    const response = await orderStatus(refrenceId, initKey);
+    console.log("daad", response);
+    setOrderStatusData(response.data);
   };
 
   return (
     <div className="App">
-      <AppHeader onLaunch={onLaunch} />
+      <AppHeader />
       <AppBody
-        userData={userData}
+        orderData={orderData}
+        orderStatusData={orderStatusData}
         onLaunch={onLaunch}
+        onRefresh={onRefresh}
       />
     </div>
   );

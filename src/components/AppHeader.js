@@ -1,11 +1,11 @@
 // AppHeader.js
 import React from "react";
 
-const AppHeader = ({ onLaunch }) => {
+const AppHeader = () => {
   return (
     <div className="App-header">
-      <img
-        src={process.env.PUBLIC_URL + "/flam.svg"}
+      <img className="App-header-logo"
+        src={process.env.PUBLIC_URL + "/zingcam.png"}
         alt="image"
       />
     </div>

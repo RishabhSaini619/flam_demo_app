@@ -1,7 +1,7 @@
 // OrderDetails.js
 import { v4 as uuidv4 } from "uuid";
 
-const refrenceId = uuidv4();
+export const refrenceId = uuidv4();
 
 const orderDetails = {
   productId: "a623e6a2-b366-4fb0-b193-ec1ad2d36b5d",

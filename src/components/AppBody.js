@@ -2,9 +2,10 @@
 import React from "react";
 import ReactPlayer from "react-player";
 
-const AppBody = ({ userData, onLaunch }) => {
+const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
+  console.log(orderStatusData);
   const downloadImage = () => {
-    fetch(userData.photo_url)
+    fetch(orderData.photo_url)
       .then((response) => response.blob())
       .then((blob) => {
         const url = URL.createObjectURL(blob);
@@ -16,7 +17,7 @@ const AppBody = ({ userData, onLaunch }) => {
   };
 
   const downloadVideo = () => {
-    fetch(userData.video_url)
+    fetch(orderData.video_url)
       .then((response) => response.blob())
       .then((blob) => {
         const url = URL.createObjectURL(blob);
@@ -29,24 +30,49 @@ const AppBody = ({ userData, onLaunch }) => {
 
   return (
     <div className="App-body">
-      {userData?.order?._id ? (
+      {orderData?.order?._id ? (
         <div className="App-body-submit">
-          <img
-            className="client_photo_url"
-            src={userData.photo_url}
-            alt="image"
-          />
-          <div className="client_video_url">
-            <ReactPlayer
-              url={userData.video_url}
-              width="100%"
-              height="100%"
-              controls={true}
+          {/* card photo */}
+          <div className="card-photo">
+            {/* card - title  */}
+            <h4>{"Photo Preview"}</h4>
+            {/* card -preview */}
+            <img
+              className="client_photo_url"
+              src={orderData.photo_url}
+              alt="image"
+            />
+            {/* card btn title */}
+            
+            <h4 className="card-btn" onClick={downloadImage} style={{ color: '#E0FE69'}}>{"Download Photo"}</h4>
+            
+          </div>
+          <div className="card-video">
+            <h4>{"Video Preview"}</h4>
+            <div className="client_video_url">
+              <ReactPlayer
+                url={orderData.video_url}
+                width="100%"
+                height="100%"
+                controls={true}
+              />
+            </div> 
+            <h4 className="card-btn" onClick={downloadVideo} style={{ color: '#E0FE69'}}>{"Download Video "}</h4>
+          </div>
+          <div className="card-stats">
+            <h4>Status </h4>
+            <h4 style={{ color: orderStatusData.status=="PROCESSING" ? ("orange"):('green')}}>{orderStatusData && orderStatusData.status}</h4>
+            <img 
+              src={process.env.PUBLIC_URL + "refresh.png"}
+              alt="image"
+              className="refresh"
+              width="20"
+              height="20"
+              onClick={onRefresh}
             />
           </div>
-
           <div className="logo_zingcam">
-            <img
+            <img className="logo_zingcam_photo"
               src={process.env.PUBLIC_URL + " logo_zingcam.png"}
               alt="image"
               width="50"
@@ -56,40 +82,10 @@ const AppBody = ({ userData, onLaunch }) => {
               }
             />
           </div>
-
-          <div className="download-buttons">
-            
-              <img
-                className="downloadImageButton"
-                src={process.env.PUBLIC_URL + " download1.png"}
-                alt="image"
-                width="30"
-                height="30"
-                onClick={downloadImage}
-              />
-            
-            
-              <img
-                className="downloadVideoButton"
-                src={process.env.PUBLIC_URL + " download1.png"}
-                alt="image"
-                width="30"
-                height="30"
-                onClick={downloadVideo}
-              />
-            
-          </div>
         </div>
       ) : (
         <div className="App-body-submit">
-          <img
-            src={process.env.PUBLIC_URL + "launch.png"}
-            alt="image"
-            className="launch"
-            width="180"
-            height="75"
-            onClick={onLaunch}
-          />
+          <h4 className="launch" onClick={onLaunch} style={{ color: '#E0FE69' , fontSize: `5vi`}}>{"LAUNCH"}</h4>
         </div>
       )}
     </div>
