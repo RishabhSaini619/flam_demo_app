@@ -1,9 +1,5 @@
-
 .App {
   text-align: center;
-  align-items: center;
-  width: 100vw;
-
   overflow-x: hidden;
 }
 
@@ -11,21 +7,19 @@
   margin: 0.5rem;
   display: flex;
   width: 100vw;
-  height: 10vh;
+  height: 7vh;
   align-items: center;
   justify-content: center;
 }
 .App-header-logo {
-  width: 70vw;
-  height: 7vh;
+  width: 50vw;
+  height: 6vh;
 }
 
 .App-body {
   width: 100vw;
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  align-content: center;
   justify-content: center;
 }
 
@@ -35,27 +29,32 @@
   padding-bottom: 1%;
   padding-left: 5%;
   padding-right: 5%;
-  background-color: #E0FE69;}
+  background-color: #e0fe69;
+}
 
 .launch {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding-top: 2vh;
-  padding-bottom: 2vh ;
-  padding-left: 8vw;
-  padding-right: 8vw;
-  border-radius: 5vi;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  border-radius: 2vi;
   background-color: #2c56d4;
+}
+.card-title {
+  margin-top: 3vi;
+  margin-bottom: 3vi;
 }
 .card-photo {
   display: flex;
   align-items: center;
   border-radius: 5vi;
   margin: 3vi;
-  margin-left: 2.5vw;
-  margin-right: 2.5vw;
+  margin-left: 4vw;
+  margin-right: 4vw;
   border-color: #1545d3;
   background-color: #e0fe699d;
   border-width: 1vi;
@@ -68,8 +67,8 @@
   align-items: center;
   border-radius: 5vi;
   margin: 3vi;
-  margin-left: 2.5vw;
-  margin-right: 2.5vw;
+  margin-left: 4vw;
+  margin-right: 4vw;
   border-color: #1545d3;
   background-color: #e0fe699d;
   border-width: 1vi;
@@ -82,44 +81,48 @@
   margin-top: 1vh;
   margin-bottom: 1vh;
   padding-top: 1vh;
-  padding-bottom: 1vh ;
+  padding-bottom: 1vh;
   padding-left: 5vw;
   padding-right: 5vw;
   border-radius: 3vi;
   background-color: #2c56d4;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  flex-direction: row;
-  justify-content: space-evenly;
 }
 .refresh {
   background-color: #2c56d4;
-  padding: 2vi;border-radius: 10vi ;
-
+  padding: 2vi;
+  border-radius: 10vi;
 }
 .card-stats {
   display: flex;
   align-items: center;
-  align-content: center;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin: 3vi;
-  margin-left: 2.5vw;
-  margin-right: 2.5vw;
-  border-radius: 5vi;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  border-radius: 3vi;
   border-color: #1545d3;
   background-color: #e0fe699d;
-  border-width: 1vi;
+}
+.card-stats-statusbar {
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 3vi;
 }
 .client_photo_url {
+  overflow: hidden;
+  object-fit: cover;
   border-radius: 5vi;
-  width: 80vw;
-  height: 20vh;
+  width: 85vw;
+  height: 25vh;
 }
 
 .client_video_url {
+  overflow: hidden;
+  object-fit: cover;
   border-radius: 5vi;
-  width: 80vw;
-  height: 20vh;
+  width: 85vw;
+  height: 25vh;
 }

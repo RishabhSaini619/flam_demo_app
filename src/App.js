@@ -11,10 +11,10 @@ const App = () => {
   const [orderData, setOrderData] = useState({});
   const [orderStatusData, setOrderStatusData] = useState({});
 
-  const componentStyle = {
-    width: window.innerWidth,
-    height: window.innerHeight,
-  };
+  // const componentStyle = {
+  //   width: window.innerWidth,
+  //   height: window.innerHeight,
+  // };
 
   const onLaunch = () => {
     flam.placeOrder({
@@ -45,7 +45,7 @@ const App = () => {
   };
 
   return (
-    <div className="App" style={componentStyle}>
+    <div className="App" width="window.innerWidth" height="window.innerHeight">
       <AppHeader />
       <AppBody
         orderData={orderData}
