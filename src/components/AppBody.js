@@ -85,7 +85,7 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
         </div>
       ) : (
         <div className="App-body-submit">
-          <h4 className="launch" onClick={onLaunch} style={{ color: '#E0FE69' , fontSize: `5vi`}}>{"LAUNCH"}</h4>
+          <h4 className="launch" onClick={onLaunch} style={{ color: '#E0FE69' , fontSize: `4vi`}}>{"LAUNCH"}</h4>
         </div>
       )}
     </div>
