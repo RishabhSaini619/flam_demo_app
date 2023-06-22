@@ -6,11 +6,12 @@
 .App-header {
   margin: 0.5rem;
   display: flex;
-  width: 100vw;
+  width: 90vw;
   height: 7vh;
   align-items: center;
   justify-content: center;
 }
+
 .App-header-logo {
   width: 50vw;
   height: 6vh;
@@ -23,16 +24,10 @@
   justify-content: center;
 }
 
-.logo_zingcam_photo {
-  border-radius: 10vi;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 5%;
-  padding-right: 5%;
-  background-color: #e0fe69;
-}
-
-.launch {
+.App-body-submit-launch {
+  color: #e0fe69;
+  font-size: 5vi;
+  width: 20vh;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -44,10 +39,7 @@
   border-radius: 2vi;
   background-color: #2c56d4;
 }
-.card-title {
-  margin-top: 3vi;
-  margin-bottom: 3vi;
-}
+
 .card-photo {
   display: flex;
   align-items: center;
@@ -62,6 +54,7 @@
   flex-direction: column;
   align-content: center;
 }
+
 .card-video {
   display: flex;
   align-items: center;
@@ -76,6 +69,12 @@
   flex-direction: column;
   align-content: center;
 }
+
+.card-title {
+  margin-top: 3vi;
+  margin-bottom: 3vi;
+}
+
 .card-btn {
   margin: 3vi;
   margin-top: 1vh;
@@ -86,30 +85,6 @@
   padding-right: 5vw;
   border-radius: 3vi;
   background-color: #2c56d4;
-}
-.refresh {
-  background-color: #2c56d4;
-  padding: 2vi;
-  border-radius: 10vi;
-}
-.card-stats {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 3vi;
-  margin-left: 4vw;
-  margin-right: 4vw;
-  border-radius: 3vi;
-  border-color: #1545d3;
-  background-color: #e0fe699d;
-}
-.card-stats-statusbar {
-  background-color: white;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 3vi;
 }
 .client_photo_url {
   overflow: hidden;
@@ -125,4 +100,154 @@
   border-radius: 5vi;
   width: 85vw;
   height: 25vh;
+}
+
+.card-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 3vi;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  border-radius: 3vi;
+  border-color: #1545d3;
+  background-color: #e0fe699d;
+}
+
+.card-stats-statusbar {
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 3vi;
+}
+
+.refresh {
+  background-color: #2c56d4;
+  padding: 2vi;
+  border-radius: 10vi;
+}
+
+.logo_zingcam_photo {
+  width:50px;
+  height:50px;
+  border-radius: 10vi;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #e0fe69;
+}
+
+@media screen and (min-width: 768px) {
+  .App {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .App-header {
+    width: 90%;
+    height: 10%;
+    justify-content: flex-start;
+  }
+  .App-header-logo {
+    width: 20%;
+    height: 6vh;
+  }
+
+  .App-body {
+    width: 40%;
+    height: 90%;
+    align-items: center;
+  }
+
+  .App-body-submit {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .App-body-submit-launch {
+    width: 5%;
+    font-size: 1vi;
+    border-radius: 0.5vi;
+  }
+
+  .card-photo {
+    width: 85%;
+    height: 15%;
+    border-radius: 1vi;
+    margin: 0.5%;
+    align-items: flex-start;
+  }
+
+  .card-video {
+    width: 85%;
+    height: 15%;
+    border-radius: 1vi;
+    margin: 0.5%;
+    align-items: flex-start;
+  }
+
+  .card-title {
+    width: 90%;
+    margin-top: 1vi;
+    margin-bottom: 1vi;
+    text-align: start;
+  }
+
+  .client_photo_url {
+    width: 90%;
+    border-radius: 1vi;
+  }
+
+  .client_video_url {
+    width: 90%;
+    border-radius: 1vi;
+  }
+
+  .card-btn {
+    width: 15%;
+    margin-left: 0%;
+    text-align: start;
+    border-radius: 1vi;
+  }
+
+  .card-stats {
+    width: 85%;
+    margin: 0.5%;
+    border-radius: 1vi;
+  }
+
+  .card-stats-statusbar {
+    width: 20%;
+    border-radius: 0.5vi;
+  }
+
+  .refresh {
+    padding: 0.5vi;
+  }
+
+  .logo_zingcam{
+    width: 10%;
+    height: 1%;
+  }
+
+  .logo_zingcam_photo {
+    border-radius: 1vi;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    padding-left: 20%;
+    padding-right: 20%;
+    background-color: #e0fe69;
+  }
 }

@@ -75,8 +75,6 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
             <img className="logo_zingcam_photo"
               src={process.env.PUBLIC_URL + " logo_zingcam.png"}
               alt="image"
-              width="50"
-              height="50"
               onClick={() =>
                 window.open("https://onelink.to/zingcam", "_blank")
               }
@@ -85,7 +83,7 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
         </div>
       ) : (
         <div className="App-body-submit">
-          <h4 className="launch" onClick={onLaunch} style={{ color: '#E0FE69' , fontSize: `4vi`}}>{"LAUNCH"}</h4>
+          <h4 className="App-body-submit-launch" onClick={onLaunch}>{"LAUNCH"}</h4>
         </div>
       )}
     </div>
