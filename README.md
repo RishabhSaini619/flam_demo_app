@@ -10,7 +10,7 @@
 - Install the dependencies by running the following command:
 ```npm install```
 - Once the installation is complete, you can start the app by running:
-```npm start````
+```npm start```
 - This will launch the app in your default browser, and you can view it at http://localhost:3000.
 
 ## Components
