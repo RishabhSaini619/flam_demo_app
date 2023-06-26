@@ -48,12 +48,12 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
               {"Download Photo"}
             </h4>
           </div>
-          <div className="card-video-1">
+          <div className="card-video">
             <h4 className="card-title">{"Video Preview"}</h4>
             <div className="client_video_url">
               <ReactPlayer
                 url={orderData.video_url}
-                width="120%"
+                width="100%"
                 height="100%"
                 controls={true}
               />
@@ -83,24 +83,6 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
               className="refresh"
               onClick={onRefresh}
             />
-          </div>
-          <div className="card-video-2">
-            <h4 className="card-title">{"Video Preview"}</h4>
-            <div className="client_video_url">
-              <ReactPlayer
-                url={orderData.video_url}
-                width="100%"
-                height="100%"
-                controls={true}
-              />
-            </div>
-            <h4
-              className="card-btn"
-              onClick={downloadVideo}
-              style={{ color: "#E0FE69" }}
-            >
-              {"Download Video "}
-            </h4>
           </div>
           <div className="logo_zingcam">
             <img
