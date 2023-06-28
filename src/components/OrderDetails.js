@@ -14,7 +14,7 @@ const orderDetails = {
     url: "",
     default: "",
   },
-  color: "#000000",
+  color: "#2c56d4",
 };
 
 export default orderDetails;
