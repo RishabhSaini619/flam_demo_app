@@ -1,35 +1,26 @@
 // AppBody.js
 import React from "react";
 import ReactPlayer from "react-player";
+import { downloadImage, downloadVideo } from "./APIService";
+
 
 const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
   console.log(orderStatusData);
-  const downloadImage = () => {
-    fetch(orderData.photo_url)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "image.jpg";
-        link.click();
-      });
+  
+  const handleImageDownload = () => {
+    if (orderData.photo_url) {
+      downloadImage(orderData.photo_url);
+    }
   };
 
-  const downloadVideo = () => {
-    fetch(orderData.video_url)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "video.mp4";
-        link.click();
-      });
+  const handleVideoDownload = () => {
+    if (orderData.video_url) {
+      downloadVideo(orderData.video_url);
+    }
   };
 
   return (
-    <div className="App-body">
+    <main className="App-body">
       {orderData?.order?._id ? (
         <div className="App-body-submit">
           {/* card photo */}
@@ -44,7 +35,7 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
             />
             {/* card btn title */}
 
-            <h4 className="card-btn" onClick={downloadImage}>
+            <h4 className="card-btn" onClick={handleImageDownload}>
               {"Download Photo"}
             </h4>
           </div>
@@ -60,7 +51,7 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
             </div>
             <h4
               className="card-btn"
-              onClick={downloadVideo}
+              onClick={handleVideoDownload}
               style={{ color: "#E0FE69" }}
             >
               {"Download Video "}
@@ -102,7 +93,7 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
           </h4>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 

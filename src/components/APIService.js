@@ -58,3 +58,36 @@ export const orderStatus = async (refId, initKey) => {
     console.error(error);
   }
 };
+
+export const downloadImage = async (photoUrl) => {
+  console.log("API Service downloadd img");
+  try {
+    const response = await axios.get(photoUrl, {
+      responseType: "blob",
+    });
+    const url = URL.createObjectURL(response.data);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "image.jpg";
+    link.click();
+  } catch (error) {
+    console.log("Failed to download image:", error);
+  }
+};
+
+export const downloadVideo = async (videoUrl) => {
+  console.log("API Service downloadd vid");
+  try {
+    const response = await axios.get(videoUrl, {
+      responseType: "blob",
+    });
+    const url = URL.createObjectURL(response.data);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "video.mp4";
+    link.click();
+  } catch (error) {
+    console.log("Failed to download video:", error);
+  }
+};
+
