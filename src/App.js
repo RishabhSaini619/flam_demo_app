@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import flam from "./components/FlamSDK";
-import orderDetails, { refrenceId } from "./components/OrderDetails";
+import {flam} from "./components/FlamSDK";
+import {orderDetails , refrenceId } from "./components/OrderDetails";
 import { finalizeOrder, orderStatus } from "./components/APIService";
-import AppHeader from "./components/AppHeader";
-import AppBody from "./components/AppBody";
+import {AppHeader} from "./components/AppHeader";
+import {AppBody} from "./components/AppBody";
 
 const App = () => {
   const initKey = "MIIJrTBXBgkqhkiG9w0BBQ0wSjApBgkq";

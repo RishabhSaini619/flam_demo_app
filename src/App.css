@@ -170,6 +170,7 @@
   }
 
   .App-body-submit {
+    border: 1px  solid #808080;
     width: 95%;
     margin: 5%;
     padding: auto;

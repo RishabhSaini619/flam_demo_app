@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 import { downloadImage, downloadVideo } from "./APIService";
 
 
-const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
+export const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
   console.log(orderStatusData);
   
   const handleImageDownload = () => {
@@ -97,4 +97,4 @@ const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
   );
 };
 
-export default AppBody;
+// export default AppBody;

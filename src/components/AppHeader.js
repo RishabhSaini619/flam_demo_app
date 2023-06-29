@@ -1,7 +1,7 @@
 // AppHeader.js
 import React from "react";
 
-const AppHeader = () => {
+export const AppHeader = () => {
   return (
     <header className="App-header">
       <img className="App-header-logo"
@@ -12,4 +12,4 @@ const AppHeader = () => {
   );
 };
 
-export default AppHeader;
+// export default AppHeader;

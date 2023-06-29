@@ -1,12 +1,15 @@
 // API.js
 import axios from "axios";
+// import { API } from "./Constant";
+
+const API = "https://api.flamapp.com/flamcards/zingcam/order/";
 
 export const finalizeOrder = async (refId, initKey) => {
   console.log(refId, initKey);
 
   try {
     const response = await axios.post(
-      "https://api.flamapp.com/flamcards/zingcam/order/finalize",
+      `${API}finalize`,
       {
         ref_id: refId,
       },
@@ -36,7 +39,7 @@ export const orderStatus = async (refId, initKey) => {
 
   try {
     const response = await axios.get(
-      `https://zingcam.prod.flamapp.com/zingcam/order/status?ref_id=${refId}`,
+      `${API}status?ref_id=${refId}`,
 
       {
         headers: {
