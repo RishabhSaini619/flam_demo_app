@@ -1,23 +1,11 @@
 // AppBody.js
 import React from "react";
 import ReactPlayer from "react-player";
-import { downloadImage, downloadVideo } from "./APIService";
-
+import {handleImageDownload,handleVideoDownload} from "./Function";
 
 export const AppBody = ({ orderData, orderStatusData, onLaunch, onRefresh }) => {
   console.log(orderStatusData);
   
-  const handleImageDownload = () => {
-    if (orderData.photo_url) {
-      downloadImage(orderData.photo_url);
-    }
-  };
-
-  const handleVideoDownload = () => {
-    if (orderData.video_url) {
-      downloadVideo(orderData.video_url);
-    }
-  };
 
   return (
     <main className="App-body">

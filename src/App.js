@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
-import {flam} from "./components/FlamSDK";
-import {orderDetails , refrenceId } from "./components/OrderDetails";
-import { finalizeOrder, orderStatus } from "./components/APIService";
 import {AppHeader} from "./components/AppHeader";
 import {AppBody} from "./components/AppBody";
+import {flam, initKey ,orderDetails , refrenceId} from "./components/Constant";
+import { finalizeOrder , orderStatus } from "./components/APIService";
+
 
 const App = () => {
-  const initKey = "MIIJrTBXBgkqhkiG9w0BBQ0wSjApBgkq";
   const [orderData, setOrderData] = useState({});
   const [orderStatusData, setOrderStatusData] = useState({});
 
-  const onLaunch = () => {
+   const onLaunch = () => {
     flam.placeOrder({
       ...orderDetails,
       handleSuccess: async (data) => {
@@ -32,7 +31,7 @@ const App = () => {
     });
   };
 
-  const onRefresh = async () => {
+   const onRefresh = async () => {
     console.log(refrenceId, initKey, "onRefresh");
     const response = await orderStatus(refrenceId, initKey);
     console.log("daad", response);
