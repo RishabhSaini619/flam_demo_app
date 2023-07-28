@@ -177,10 +177,10 @@
     position: fixed;
     top: 20%;
     bottom: auto;
-    left: 20%;
-    right: auto;
+    /* left: 20%; */
+    /* right: auto; */
     display: flex;
-    width: 60%;
+    width: 70%;
     height: 70%;
     justify-content: center;
   }
@@ -219,6 +219,7 @@
   }
   .desktopBtn {
     background-color: #e0fe69;
+    color: #2c56d4;
     margin: 1%;
     display: flex;
     align-items: center;
@@ -229,6 +230,18 @@
     width: 120px;
     padding: 1%;
   }
+  /* .desktopBtn: {
+    background-color: #e0fe69;
+    margin: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px grey;
+    height: 50px;
+    width: 120px;
+    padding: 1%;
+  } */
 
   .desktopPreview {
     width: 99%;

@@ -90,10 +90,32 @@ export const AppBody = ({
           </div>
           <div className="App-body-desktop">
             <div className="desktopHeader">
-              <div className="desktopBtn" onClick={handleImagePreview}>
+              <div
+                className="desktopBtn"
+                style={
+                  videoPreview === false
+                    ? {
+                        backgroundColor: "#e0fe69",
+                        color: "#2c56d4",
+                      }
+                    : { backgroundColor: "#2c56d4", color: "#e0fe69" }
+                }
+                onClick={handleImagePreview}
+              >
                 Photo
               </div>
-              <div className="desktopBtn" onClick={handleVideoPreview}>
+              <div
+                className="desktopBtn"
+                style={
+                  videoPreview === true
+                    ? {
+                        backgroundColor: "#e0fe69",
+                        color: "#2c56d4",
+                      }
+                    : { backgroundColor: "#2c56d4", color: "#e0fe69" }
+                }
+                onClick={handleVideoPreview}
+              >
                 Video
               </div>
             </div>
